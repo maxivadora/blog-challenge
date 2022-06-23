@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :admin do
+  factory :administrator do
     email { 'admin@admin.com' }
   end
 end

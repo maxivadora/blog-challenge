@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :post do
     title { 'Amazing post' }
     content { 'The content of this post is amazing' }
-    association :admin
+    association :administrator
   end
 end
