@@ -1,0 +1,24 @@
+module Admins
+  class PostsController < BaseController
+    def new; end
+
+    def create
+      @post = Post.new(post_params)
+
+      # TODO: When the authentication is working, this will need to be removed.
+      @post.administrator = Administrator.first
+
+      if @post.save
+        redirect_to @post, notice: 'Post created!'
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+
+    private
+
+    def post_params
+      params.require(:post).permit(:title, :content)
+    end
+  end
+end
