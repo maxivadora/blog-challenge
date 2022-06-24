@@ -1,2 +1,2 @@
-Admin.create!(email: 'admin@admin.com')
-p "Admin created: #{Admin.first.email}"
+Administrator.create!(email: 'admin@admin.com')
+p "Admin created: #{Administrator.first.email}"
