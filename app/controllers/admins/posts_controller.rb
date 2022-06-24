@@ -1,6 +1,8 @@
 module Admins
   class PostsController < BaseController
-    def new; end
+    def new
+      @post = Post.new
+    end
 
     def create
       @post = Post.new(post_params)
