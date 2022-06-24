@@ -33,7 +33,7 @@
 # .env files
 .env
 .env.*
-!.env.template
+!.env.sample
 
 # Others
 .DS_Store

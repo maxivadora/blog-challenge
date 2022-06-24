@@ -1,5 +1,8 @@
 # WIP
 
+# Demo
+https://blog-challenge-rails.herokuapp.com/
+
 # Challenge description
 
 Implement a bare-bones blog with an admin page for creating new posts in rails. The requirements are:
