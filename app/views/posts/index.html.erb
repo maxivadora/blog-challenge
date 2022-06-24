@@ -1,1 +1,8 @@
 <h1> Post list </h1>
+
+<% @posts.each do |post| %>
+  <div>
+    <%= link_to post.title, post_path(post) %>
+    <p> <%= post.content.truncate(50) %> </p>
+  </div>
+<% end %>
