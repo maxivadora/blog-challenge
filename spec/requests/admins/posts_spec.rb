@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Post Management', type: :request do
+  let!(:admin) { create(:administrator) }
   let(:post_params) { attributes_for(:post) }
 
   it 'creates a new post' do
