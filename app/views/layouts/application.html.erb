@@ -11,13 +11,8 @@
   </head>
 
   <body>
-    <div class="container">
-      <% flash.each do |type, msg| %>
-        <div>
-          <%= msg %>
-        </div>
-      <% end %>
-
+    <div class="container mt-2">
+      <%= render 'shared/flash_messages' %>
       <%= yield %>
     </div>
   </body>

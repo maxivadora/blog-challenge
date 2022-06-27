@@ -6,11 +6,14 @@
     <%= render 'shared/form_errors', resource: @post %>
   <% end %>
 
-  <%= f.label :title, "Title:" %>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :content, "Content:" %>
-  <%= f.text_area :content %>
-  <br>
-  <%= f.submit "Create" %>
+  <div class="mb-3">
+    <%= f.label :title, "Title:", class: "form-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :content, "Content:", class: "form-label" %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Publish", class: "btn btn-primary" %>
 <% end %>

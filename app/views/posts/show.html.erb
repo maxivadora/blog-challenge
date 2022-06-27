@@ -14,14 +14,17 @@
         <%= render 'shared/form_error', resource: @comment %>
       <% end %>
 
-      <%= f.label :text, "Text:" %>
-      <%= f.text_field :text %>
-      <br>
-      <%= f.label :email, "Email:" %>
-      <%= f.text_field :email %>
-      <br>
-      <%= f.submit "Comment" %>
+      <div class="mb-3">
+        <%= f.label :email, "Email:", class: "form-label" %>
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :text, "Comment:", class: "form-label" %>
+        <%= f.text_area :text, class: "form-control" %>
+      </div>
+
+      <%= f.submit "Comment", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path, class: "btn btn-default" %>
