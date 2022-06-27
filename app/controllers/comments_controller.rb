@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post, notice: 'Comment created!'
     else
-      redirect_to @post, status: :unprocessable_entity
+      render @post, status: :unprocessable_entity
     end
   end
 
