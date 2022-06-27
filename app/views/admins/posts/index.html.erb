@@ -21,6 +21,7 @@
         <td> <%= post.created_by %> </td>
         <td>
           <%= link_to "Edit", edit_admins_post_path(post) %>        
+          <%= link_to "Delete", admins_post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>        
         </td>
       </tr>
     <% end %>

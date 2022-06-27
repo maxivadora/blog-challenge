@@ -56,4 +56,15 @@ RSpec.describe 'Post Management', type: :request do
       expect(response.body).to include('updated content')
     end
   end
+
+  describe 'destroy a post' do
+    let(:post) { create(:post, :with_two_comments) }
+
+    it 'destroys a post' do
+      delete "/admins/posts/#{post.id}"
+      follow_redirect!
+
+      expect(response.body).to include('Post deleted!')
+    end
+  end
 end

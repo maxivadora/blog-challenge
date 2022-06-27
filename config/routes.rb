@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :posts, only: %i[index new create edit update]
+    resources :posts, only: %i[index new create edit update destroy]
   end
 end

@@ -1,6 +1,6 @@
 module Admins
   class PostsController < BaseController
-    before_action :set_post, only: %i[edit update]
+    before_action :set_post, only: %i[edit update destroy]
 
     def index
       @posts = Post.all
@@ -31,6 +31,11 @@ module Admins
       else
         render :edit, status: :unprocessable_entity
       end
+    end
+
+    def destroy
+      @post.destroy
+      redirect_to admins_posts_path, notice: 'Post deleted!'
     end
 
     private
