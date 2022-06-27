@@ -1,5 +1,7 @@
 module Admins
   class PostsController < BaseController
+    before_action :set_post, only: %i[edit update]
+
     def index
       @posts = Post.all
     end
@@ -21,7 +23,21 @@ module Admins
       end
     end
 
+    def edit; end
+
+    def update
+      if @post.update(post_params)
+        redirect_to @post, notice: 'Post updated!'
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
     private
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
     def post_params
       params.require(:post).permit(:title, :content)

@@ -20,7 +20,7 @@
         <td> <%= l(post.created_at, format: :short) %> </td>
         <td> <%= post.created_by %> </td>
         <td>
-          
+          <%= link_to "Edit", edit_admins_post_path(post) %>        
         </td>
       </tr>
     <% end %>

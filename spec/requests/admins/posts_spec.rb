@@ -9,6 +9,7 @@ RSpec.describe 'Post Management', type: :request do
       it 'creates a new post' do
         get '/admins/posts/new'
         expect(response).to have_http_status(:ok)
+        expect(response.body).to include('New Post')
 
         post '/admins/posts', params: { post: post_params }
         follow_redirect!
@@ -36,6 +37,23 @@ RSpec.describe 'Post Management', type: :request do
       expect(response).to have_http_status(:ok)
 
       expect(response.body).to include('Dashboard - Post')
+    end
+  end
+
+  describe 'edit a post' do
+    let(:post) { create(:post) }
+    let(:post_params) { { content: 'updated content' } }
+
+    it 'edit a post' do
+      get "/admins/posts/#{post.id}/edit"
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include('Edit Post')
+
+      put "/admins/posts/#{post.id}", params: { post: post_params }
+      follow_redirect!
+
+      expect(response.body).to include('Post updated!')
+      expect(response.body).to include('updated content')
     end
   end
 end
