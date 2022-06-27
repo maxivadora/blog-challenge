@@ -1,1 +1,13 @@
 @import "bootstrap";
+
+
+.post-title {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+.post-date {
+  color: #727272;
+  font-size: 0.7rem;
+}

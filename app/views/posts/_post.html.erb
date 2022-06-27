@@ -1,0 +1,10 @@
+<div class="bg-light p-4 rounded mt-3">
+  <h2 class="post-title"><%= link_to post.title, post_path(post) %></h2>
+  <p class="post-date"><%= l(post.created_at, format: :short) %> by <%= post.administrator.email %></p>
+
+  <% if defined?(truncate_content_body) && truncate_content_body %>
+    <p class="lead"><%= truncate_content(post.content) %></p>
+  <% else %>
+    <p class="lead"><%= post.content %></p>
+  <% end %>
+</div>
