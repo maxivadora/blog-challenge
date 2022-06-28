@@ -4,6 +4,10 @@ RSpec.describe 'Post Management', type: :request do
   let!(:admin) { create(:administrator) }
   let(:post_params) { attributes_for(:post) }
 
+  before do
+    allow_any_instance_of(Admins::BaseController).to receive(:current_admin).and_return(admin)
+  end
+
   describe 'creates a new post' do
     context 'with valid params' do
       it 'creates a new post' do

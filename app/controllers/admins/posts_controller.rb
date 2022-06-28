@@ -1,5 +1,6 @@
 module Admins
   class PostsController < BaseController
+    before_action :authorize_admin!
     before_action :set_post, only: %i[edit update destroy]
 
     def index
