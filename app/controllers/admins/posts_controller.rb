@@ -11,10 +11,7 @@ module Admins
     end
 
     def create
-      @post = Post.new(post_params)
-
-      # TODO: When the authentication is working, this will need to be removed.
-      @post.administrator = Administrator.first
+      @post = current_admin.posts.new(post_params)
 
       if @post.save
         redirect_to @post, notice: 'Post created!'
