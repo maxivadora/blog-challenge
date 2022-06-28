@@ -14,6 +14,11 @@ module Admins
       end
     end
 
+    def destroy
+      session[:administrator_id] = nil
+      redirect_to admins_login_path, notice: 'Logged out successfully.'
+    end
+
     private
 
     def session_params

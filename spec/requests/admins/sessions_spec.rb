@@ -13,8 +13,6 @@ RSpec.describe 'Session Management', type: :request do
         post '/admins/login', params: { email: admin.email }
         follow_redirect!
 
-        p session
-
         expect(session[:administrator_id]).to eq(admin.id)
         expect(response.body).to include('Login successfully')
       end
@@ -31,6 +29,16 @@ RSpec.describe 'Session Management', type: :request do
         expect(response.body).to include('Invalid email or password. Please try again!.')
         expect(response).to have_http_status(:unauthorized)
       end
+    end
+  end
+
+  describe 'destroy a post' do
+    it 'destroys a post' do
+      delete '/admins/logout'
+      follow_redirect!
+
+      expect(session[:administrator_id]).to eq(nil)
+      expect(response.body).to include('Logged out successfully.')
     end
   end
 end
