@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
+    get 'login', to: 'sessions#new'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
     resources :posts, only: %i[index new create edit update destroy]
   end
 end

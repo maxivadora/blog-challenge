@@ -1,6 +1,5 @@
 @import "bootstrap";
 
-
 .post-title {
   a {
     text-decoration: none;
@@ -10,4 +9,11 @@
 .post-date {
   color: #727272;
   font-size: 0.7rem;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
 }
