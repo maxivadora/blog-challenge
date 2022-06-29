@@ -33,7 +33,7 @@ module Admins
 
     def destroy
       @post.destroy
-      redirect_to admins_posts_path, notice: 'Post deleted!'
+      redirect_to admins_posts_path, status: :see_other, notice: 'Post deleted!'
     end
 
     private
