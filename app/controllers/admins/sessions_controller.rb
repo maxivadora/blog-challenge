@@ -16,7 +16,7 @@ module Admins
 
     def destroy
       session[:administrator_id] = nil
-      redirect_to admins_login_path, notice: 'Logged out successfully.'
+      redirect_to admins_login_path, status: :see_other, notice: 'Logged out successfully.'
     end
 
     private

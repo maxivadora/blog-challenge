@@ -1,0 +1,22 @@
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+      <li>
+        <%= link_to "Home", posts_path, class: "nav-link px-2 text-white" %>
+      </li>
+    </ul>
+
+    <div class="text-end">
+      <% if current_admin %>
+        <%= link_to "Dashboard", admins_posts_path, class: "btn btn-outline-light me-2" %>
+        <%= link_to "New Post", new_admins_post_path, class: "btn btn-primary me-2" %>
+        <%= link_to "Logout", admins_logout_path, class: "btn btn-outline-danger me-2", data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Login", admins_login_path, class: "btn btn-outline-light me-2" %>
+      <% end %>
+    </div>
+  </div>
+</header>
+
